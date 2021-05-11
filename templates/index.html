@@ -2,10 +2,12 @@
 
 
 <style>
-    body
+    html, body
     {
         margin: 0;
         background-color: #5e8ccc;
+        max-width: 100%;
+        overflow-x: hidden;
         font-family: Arial, Helvetica, sans-serif;
     }
 
@@ -19,6 +21,27 @@
         margin-bottom: 50px;
         position: relative;
         border: 5px solid #555;
+        animation-name: fade;
+        animation-duration: 2s;
+    }
+
+    @keyframes fadeInLeft
+    {
+        0%
+        {
+            opacity: 0;
+            transform:translateX(-200px)
+        }
+        100%
+        {
+            opacity: 1;
+            transform:translateX(0)
+        }
+    }
+
+    .fadeInLeft
+    {
+        animation-name: fadeInLeft
     }
 
     .totalCasesImage
@@ -28,6 +51,27 @@
         max-height: 720px;
         position: relative;
         border: 5px solid #555;
+        animation-name: fade;
+        animation-duration: 2s;
+    }
+
+    @keyframes fadeInRight
+    {
+        0%
+        {
+            opacity: 0;
+            transform:translateX(200px)
+        }
+        100%
+        {
+            opacity: 1;
+            transform:translateX(0)
+        }
+    }
+
+    .fadeInRight
+    {
+        animation-name: fadeInRight;
     }
 
     .dropDownMenu
@@ -146,10 +190,9 @@
     <body>
         <main>
             <div class="navBar">
-                <a href="#">About</a>
-                <a href="#">Contact</a>
-                <a href="#">Counties</a>
-                <a href="#">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="index.html">Home</a>
             </div>
 
             <h1 style="position: relative; font-size: 50px; margin-top: 15px; left: 38%; max-width: 550px; max-height: 0">Covid Data Tracker</h1>
@@ -165,9 +208,11 @@
                 </div>
             </div>
 
+            <h1 id="countyLabel" style="max-height: 10px; margin: 0 0 -15px 375px; position: relative">Los Angeles, California, US</h1>
+
             <div>
-                <img src="average_cases_line_plot_Los%20Angeles,%20California,%20US.png" id="Average COVID-19 Cases" alt="Average COVID-19 Cases" class="averageCasesImage">
-                <img src="total_cases_line_plot_Los%20Angeles,%20California,%20US.png" id="Total COVID-19 Cases" alt="Total COVID-19 Cases" class="totalCasesImage">
+                <img src="average_cases_line_plot_Los%20Angeles,%20California,%20US.png" id="Average COVID-19 Cases" alt="Average COVID-19 Cases" class="averageCasesImage fadeInLeft">
+                <img src="total_cases_line_plot_Los%20Angeles,%20California,%20US.png" id="Total COVID-19 Cases" alt="Total COVID-19 Cases" class="totalCasesImage fadeInRight">
             </div>
 
             <script>
@@ -218,6 +263,8 @@
                     document.getElementById("Average COVID-19 Cases").style.visibility = "visible"
                     document.getElementById("Total COVID-19 Cases").src = totalCasesPath
                     document.getElementById("Total COVID-19 Cases").style.visibility = "visible"
+
+                    document.getElementById("countyLabel").innerHTML = county
                 }
 
             </script>

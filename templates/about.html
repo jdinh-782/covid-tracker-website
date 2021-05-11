@@ -16,8 +16,29 @@
         max-width: 700px;
         max-height: 450px;
         margin-left: 15%;
-        margin-top: 7%;
+        margin-top: 5%;
         border: 5px solid white;
+        animation-name: fade;
+        animation-duration: 2s;
+    }
+
+     @keyframes fadeInLeft
+    {
+        0%
+        {
+            opacity: 0;
+            transform:translateX(-200px)
+        }
+        100%
+        {
+            opacity: 1;
+            transform:translateX(0)
+        }
+    }
+
+    .fadeInLeft
+    {
+        animation-name: fadeInLeft
     }
 
     .aboutMeText
@@ -33,6 +54,27 @@
         max-width: 800px;
         margin-left: 50%;
         margin-top: -25%;
+        animation-name: fade;
+        animation-duration: 2s;
+    }
+
+    @keyframes fadeInRight
+    {
+        0%
+        {
+            opacity: 0;
+            transform:translateX(200px)
+        }
+        100%
+        {
+            opacity: 1;
+            transform:translateX(0)
+        }
+    }
+
+    .fadeInRight
+    {
+        animation-name: fadeInRight;
     }
 
     .navBar
@@ -75,16 +117,16 @@
     <body>
         <main>
             <div class="navBar">
-                <a href="#">About</a>
-                <a href="#">Contact</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
                 <a href="index.html">Home</a>
             </div>
 
             <h1 style="margin: 15px; margin-left: 45%; font-size: 50px; color: white; text-shadow: 5px 5px black;">About Me</h1>
 
-            <img src="pfp.jpg" alt="pfp" class="profilePic">
+            <img src="pfp.jpg" alt="pfp" class="profilePic fadeInLeft">
 
-            <p class="aboutMeText">
+            <p class="aboutMeText fadeInRight">
                 Hello! My name is Johnson Dinh, and I am a mathematics/computer science undergraduate studying at UCLA. I
                 enjoy coding, eating, and sleeping. Doesn't sound amazing enough? Well, I also love to meet new people
                 and network with them! Gaming is a big part of my lifestyle too! Basketball has always stuck with me
