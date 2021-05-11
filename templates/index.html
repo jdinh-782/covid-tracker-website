@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+
+
+<style>
+    body
+    {
+        margin: 0;
+        background-color: #5e8ccc;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .averageCasesImage
+    {
+        /*maintains the aspect ratio*/
+        /*visibility: hidden;*/
+        max-width: 1100px;
+        max-height: 720px;
+        margin-left: 20px;
+        margin-bottom: 50px;
+        position: relative;
+        border: 5px solid #555;
+    }
+
+    .totalCasesImage
+    {
+        /*visibility: hidden;*/
+        max-width: 755px;
+        max-height: 720px;
+        position: relative;
+        border: 5px solid #555;
+    }
+
+    .dropDownMenu
+    {
+        position: relative;
+        display: inline-block;
+        max-width: 100px;
+    }
+
+    .dropDownMenuButton
+    {
+        background-color: white;
+        color: black;
+        padding: 15px 25px;
+        cursor: pointer;
+        font-size: 18px;
+        text-align: center;
+        text-decoration: none;
+        border: 5px solid black;
+        display: inline-block;
+    }
+
+    .dropDownMenuButton:hover, .dropDownMenuButton:focus
+    {
+        background-color: #5e8ccc;
+        color: white;
+    }
+
+    .dropDownMenuContent
+    {
+        display: none;
+        position: relative;
+        background-color: #f1f1f1;
+        min-width: 200px;
+        z-index: 1;
+        font-size: 18px;
+        border: 2px solid black;
+    }
+
+    .dropDownMenuContent a
+    {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropDownMenuContent a:hover
+    {
+        background-color: #ddd;
+    }
+
+    .dropDownMenu:hover
+    {
+        width: 175px;
+        display: block;
+    }
+
+    .show
+    {
+        cursor: pointer;
+        display: block;
+    }
+
+    #dropDownMenuInput
+    {
+        box-sizing: border-box;
+        background-image: url('search_icon.png');
+        background-position: right;
+        background-repeat: no-repeat;
+        font-size: 16px;
+        padding-top: 14px;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        position: relative;
+        text-align: start;
+    }
+
+    .navBar
+    {
+        overflow: hidden;
+        background-color: black;
+    }
+
+    .navBar a
+    {
+        float: right;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .navBar a:hover
+    {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .navBar a.active
+    {
+        background-color: #04AA6D;
+        color: white;
+    }
+
+</style>
+
+
+<html lang="en">
+    <head>
+        <title>Covid Tracker Website</title>
+        <meta charset="UTF-8">
+    </head>
+
+    <body>
+        <main>
+            <div class="navBar">
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Counties</a>
+                <a href="#">Home</a>
+            </div>
+
+            <h1 style="position: relative; font-size: 50px; margin-top: 15px; left: 38%; max-width: 550px; max-height: 0">Covid Data Tracker</h1>
+
+            <div class="dropDownMenu">
+                <button onclick="showCounties()" class="dropDownMenuButton">Counties</button>
+                <div id="dropDownMenuOptions" class="dropDownMenuContent">
+                    <label for="dropDownMenuInput">
+                        <input type="text" placeholder="Search" id="dropDownMenuInput" onkeyup="filterDropDownMenu()">
+                    </label>
+                    <a id="item" onclick="getCounty('Los Angeles')">Los Angeles County</a>
+                    <a onclick="getCounty('Orange')">Orange County</a>
+                </div>
+            </div>
+
+            <div>
+                <img src="average_cases_line_plot_Los%20Angeles,%20California,%20US.png" id="Average COVID-19 Cases" alt="Average COVID-19 Cases" class="averageCasesImage">
+                <img src="total_cases_line_plot_Los%20Angeles,%20California,%20US.png" id="Total COVID-19 Cases" alt="Total COVID-19 Cases" class="totalCasesImage">
+            </div>
+
+            <script>
+                //get the county chosen
+                function getCounty(county)
+                {
+                    // alert(county)
+                    changeGraphImages(county + ", California, US")
+                }
+
+                //show all counties from drop down menu
+                function showCounties()
+                {
+                    document.getElementById("dropDownMenuOptions").classList.toggle("show")
+                }
+
+                //filter drop down menu with search option
+                function filterDropDownMenu()
+                {
+                    let input, filter, a, i, txtValue, div;
+
+                    input=document.getElementById("dropDownMenuInput")
+
+                    filter = input.value.toUpperCase()
+
+                    div = document.getElementById("dropDownMenuOptions");
+
+                    a = div.getElementsByTagName("a")
+
+                    for (i = 0; i < a.length; i++)
+                    {
+                        txtValue = a[i].textContent || a[i].innerText;
+
+                        if (txtValue.toUpperCase().indexOf(filter) > -1)
+                            a[i].style.display = "";
+                        else
+                            a[i].style.display = "none";
+                    }
+                }
+
+                //change graphs for specified county
+                function changeGraphImages(county)
+                {
+                    let averageCasesPath = "average_cases_line_plot_" + county + ".png"
+                    let totalCasesPath = "total_cases_line_plot_" + county + ".png"
+
+                    document.getElementById("Average COVID-19 Cases").src = averageCasesPath
+                    document.getElementById("Average COVID-19 Cases").style.visibility = "visible"
+                    document.getElementById("Total COVID-19 Cases").src = totalCasesPath
+                    document.getElementById("Total COVID-19 Cases").style.visibility = "visible"
+                }
+
+            </script>
+
+        </main>
+    </body>
+
+</html>
