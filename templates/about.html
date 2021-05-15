@@ -11,72 +11,6 @@
         font-family: Arial, Helvetica, sans-serif;
     }
 
-    .profilePic
-    {
-        max-width: 700px;
-        max-height: 450px;
-        margin-left: 15%;
-        margin-top: 5%;
-        border: 5px solid white;
-        animation-name: fade;
-        animation-duration: 2s;
-    }
-
-     @keyframes fadeInLeft
-    {
-        0%
-        {
-            opacity: 0;
-            transform:translateX(-200px)
-        }
-        100%
-        {
-            opacity: 1;
-            transform:translateX(0)
-        }
-    }
-
-    .fadeInLeft
-    {
-        animation-name: fadeInLeft
-    }
-
-    .aboutMeText
-    {
-        letter-spacing: 0.03em;
-        font-size: 35px;
-        line-height: 1.3em;
-        /*overflow-wrap: break-word;*/
-        text-align: start;
-        color: white;
-        word-wrap: break-word;
-        text-shadow: 5px 5px black;
-        max-width: 800px;
-        margin-left: 50%;
-        margin-top: -25%;
-        animation-name: fade;
-        animation-duration: 2s;
-    }
-
-    @keyframes fadeInRight
-    {
-        0%
-        {
-            opacity: 0;
-            transform:translateX(200px)
-        }
-        100%
-        {
-            opacity: 1;
-            transform:translateX(0)
-        }
-    }
-
-    .fadeInRight
-    {
-        animation-name: fadeInRight;
-    }
-
     .navBar
     {
         overflow: hidden;
@@ -105,6 +39,20 @@
         color: white;
     }
 
+    .aboutPageText
+    {
+        letter-spacing: 0.03em;
+        font-size: 35px;
+        line-height: 1.3em;
+        text-align: start;
+        color: black;
+        word-wrap: break-word;
+        max-width: 1275px;
+        margin-left: 17%;
+        margin-top: 3%;
+        font-family: "Calibri Light", serif;
+    }
+
 </style>
 
 
@@ -122,22 +70,24 @@
                 <a href="index.html">Home</a>
             </div>
 
-            <h1 style="margin: 15px; margin-left: 45%; font-size: 50px; color: white; text-shadow: 5px 5px black;">About Me</h1>
+            <h1 style="margin: 15px; text-align: center; font-size: 65px; color: black; font-family: 'Calibri Light',serif">About This Project</h1>
 
-            <img src="pfp.jpg" alt="pfp" class="profilePic fadeInLeft">
-
-            <p class="aboutMeText fadeInRight">
-                Hello! My name is Johnson Dinh, and I am a mathematics/computer science undergraduate studying at UCLA. I
-                enjoy coding, eating, and sleeping. Doesn't sound amazing enough? Well, I also love to meet new people
-                and network with them! Gaming is a big part of my lifestyle too! Basketball has always stuck with me
-                since the day I was born. There's just so much more you need to know!
-                <br><br>Myers-Briggs: ESTJ-A
+            <p class="aboutPageText">
+                As data continues to grow and expand, many student researchers, such as myself, seek on the implications that data has with regards
+                to how it is cleansed, extracted, and visualized. This small project was designed to grab data from COVID-19 datasets
+                and convert them into graphs that will help familiarize users with the impact of COVID-19 on society.
+                These graphs help show the complications and patterns of how COVID-19 has affected the world ethically, socially, and economically.
             </p>
 
-            <script>
+            <div class="aboutPageText">
+                <p>*Data provided by SRK - Kaggle <br>
 
+                    <a href="https://www.kaggle.com/sudalairajkumar/novel-corona-virus-2019-dataset" target="_blank">
+                    https://www.kaggle.com/sudalairajkumar/novel-corona-virus-2019-dataset</a>
 
-            </script>
+                </p>
+            </div>
+
 
         </main>
     </body>

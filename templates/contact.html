@@ -5,10 +5,80 @@
     html, body
     {
         margin: 0;
-        background-color: #5e8ccc;
+        /*background-color: #5e8ccc;*/
+        background-image: url("contact background.PNG");
         max-width: 100%;
+        min-height: 200%;
         overflow-x: hidden;
         font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .profilePic
+    {
+        max-width: 700px;
+        max-height: 450px;
+        margin-left: 20%;
+        margin-top: 5%;
+        border: 5px solid black;
+        animation-name: fade;
+        animation-duration: 2s;
+    }
+
+     @keyframes fadeInLeft
+    {
+        0%
+        {
+            opacity: 0;
+            transform:translateX(-200px)
+        }
+        100%
+        {
+            opacity: 1;
+            transform:translateX(0)
+        }
+    }
+
+    .fadeInLeft
+    {
+        animation-name: fadeInLeft
+    }
+
+    .contactMeText
+    {
+        letter-spacing: 0.03em;
+        font-size: 35px;
+        line-height: 1.3em;
+        /*overflow-wrap: break-word;*/
+        text-align: start;
+        color: black;
+        word-wrap: break-word;
+        /*text-shadow: 5px 5px white;*/
+        max-width: 800px;
+        margin-left: 50%;
+        margin-top: -24%;
+        animation-name: fade;
+        font-family: "Calibri Light", serif;
+        /*font-weight: bold;*/
+        animation-duration: 2s;
+    }
+
+    @keyframes fadeInRight
+    {
+        0%
+        {
+            opacity: 0;
+            transform:translateX(200px)
+        }
+        100%
+        {
+            opacity: 1;
+            transform:translateX(0)
+        }
+    }
+
+    .fadeInRight
+    {
+        animation-name: fadeInRight;
     }
 
     .navBar
@@ -39,6 +109,63 @@
         color: white;
     }
 
+    @font-face
+    {
+        font-family: customFont;
+        src: url(customFont.ttf);
+    }
+
+    .formBorder
+    {
+        border-radius: 5px;
+        background-color: white;
+        padding: 20px;
+        max-width: 750px;
+        margin-left: 28%;
+        margin-top: 10%;
+        border: 3px solid black;
+    }
+
+    .linkedInLogoCSS
+    {
+        max-height: 75px;
+        max-width: 75px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+
+    input[type=text], select, textarea
+    {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 20px;
+        box-sizing: border-box;
+        font-family: Helvetica, Arial, sans-serif;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+    }
+
+    input[type=submit]
+    {
+        background-color: #ffe14a;
+        color: black;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 10px 10px 10px 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover
+    {
+        transition: 2s;
+        background-color: transparent;
+    }
 </style>
 
 
@@ -56,7 +183,47 @@
                 <a href="index.html">Home</a>
             </div>
 
+            <h1 style="margin: 15px; text-align: center; font-size: 65px; color: black; font-family: customFont,serif">Contact Me</h1>
+
+            <img src="pfp.jpg" alt="pfp" class="profilePic fadeInLeft">
+
+            <p class="contactMeText fadeInRight">
+                Hello! My name is Johnson Dinh, and I am a mathematics/computer science undergraduate studying at UCLA. I
+                enjoy coding, eating, and sleeping. Doesn't sound amazing enough? Well, I also love to meet new people
+                and network with them! Gaming and basketball are a big part of my character as well. There's just so much more you need to know!
+                <br><br>Myers-Briggs: ESTJ-A
+            </p>
+
+            <div class="formBorder">
+                <form style="text-align: center; font-size: 24px" action="https://formsubmit.co/doyouknowdusty@gmail.com" method="POST">
+                    <a href="https://www.linkedin.com/in/johnson-dinh-251b86194/" target="_blank">
+                        <img src="linkedinLogo.png" alt="linkedInLogo" class="linkedInLogoCSS">
+                    </a>
+
+                    <div>
+                        <label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Name" required>
+                        </label>
+
+                        <label>
+                            <input type="text" id="email" name="email" placeholder="Email" required>
+                        </label>
+
+                        <label>
+                            <input type="text" id="subject" name="subject" placeholder="Subject">
+                        </label>
+
+                        <label>
+                            <textarea id="message" name="message" placeholder="Message" style="padding: 10px 12px 300px;" required></textarea>
+                        </label>
+
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+
             <script>
+
 
             </script>
 

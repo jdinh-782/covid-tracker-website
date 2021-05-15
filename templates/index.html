@@ -203,7 +203,14 @@
                     <label for="dropDownMenuInput">
                         <input type="text" placeholder="Search" id="dropDownMenuInput" onkeyup="filterDropDownMenu()">
                     </label>
-                    <a id="item" onclick="getCounty('Los Angeles')">Los Angeles County</a>
+                    <a onclick="getCounty('Alameda')">Alameda County</a>
+                    <a onclick="getCounty('Alpine')">Alpine County</a>
+                    <a onclick="getCounty('Amador')">Amador County</a>
+                    <a onclick="getCounty('Butte')">Butte County</a>
+                    <a onclick="getCounty('Calaveras')">Calaveras County</a>
+
+
+                    <a onclick="getCounty('Los Angeles')">Los Angeles County</a>
                     <a onclick="getCounty('Orange')">Orange County</a>
                 </div>
             </div>
@@ -216,6 +223,10 @@
             </div>
 
             <script>
+                var californiaCounties = ['Alameda', 'Alpine', 'Amador', 'Butte', 'Calaveras', 'Los Angeles', 'Orange']
+
+
+
                 //get the county chosen
                 function getCounty(county)
                 {
